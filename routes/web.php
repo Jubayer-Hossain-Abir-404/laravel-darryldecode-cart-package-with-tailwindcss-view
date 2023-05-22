@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductContoller;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/products', [ProductContoller::class, 'product_list'])->name('products');
+
+Route::post('/products/cart/add', [CartController::class, 'add_cart'])->name('add_cart');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

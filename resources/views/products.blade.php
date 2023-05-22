@@ -21,7 +21,16 @@
                             <h2 class="text-sm text-gray-500 font-semibold">{{ $product->price }}</h2>
                         </div>
                         <div class="flex justify-end  mt-4">
-                            <button class="bg-blue-950 text-white rounded-md text-sm px-3 py-1 font-bold">Add To Cart</button>
+                            <form method="POST" action="{{ route('add_cart') }}" enctype="multipart/form-data">
+                                @csrf
+                                <input name="id" value="{{ $product->id }}" hidden>
+                                <input name="name" value="{{ $product->name }}" hidden>
+                                <input name="price" value="{{ $product->price }}" hidden>
+                                <input name="description" value="{{ $product->description }}" hidden>  
+                                <input name="image" value="{{ $product->image }}" hidden>
+
+                                <button class="bg-blue-950 text-white rounded-md text-sm px-3 py-1 font-bold">Add To Cart</button>
+                            </form>
                         </div>
                         
                     </div>
