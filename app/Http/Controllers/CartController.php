@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function cart_list(){
-        $carts = Cart::getContent();
-        return view('cart', compact('cart'));
-    }
-
     public function add_cart(Request $request){
         Cart::add(
             array(
@@ -29,5 +24,10 @@ class CartController extends Controller
         );
 
         return back();
+    }
+
+    public function view_cart(){
+        $carts = Cart::getContent();
+        return view('view_cart', compact('carts'));
     }
 }

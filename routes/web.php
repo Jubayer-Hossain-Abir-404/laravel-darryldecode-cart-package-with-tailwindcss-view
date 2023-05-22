@@ -23,6 +23,8 @@ Route::get('/products', [ProductContoller::class, 'product_list'])->name('produc
 
 Route::post('/products/cart/add', [CartController::class, 'add_cart'])->name('add_cart');
 
+Route::get('/products/cart/view', [CartController::class, 'view_cart'])->name('view_cart');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
