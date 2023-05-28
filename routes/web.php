@@ -25,6 +25,12 @@ Route::post('/products/cart/add', [CartController::class, 'add_cart'])->name('ad
 
 Route::get('/products/cart/view', [CartController::class, 'view_cart'])->name('view_cart');
 
+Route::post('/products/cart/update', [CartController::class, 'update_cart'])->name('update-cart');
+
+Route::get('/products/cart/{id}/remove', [CartController::class, 'remove_item'])->name('remove-item');
+
+Route::get('/products/cart/clear', [CartController::class, 'clear_item'])->name('clear-item');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
